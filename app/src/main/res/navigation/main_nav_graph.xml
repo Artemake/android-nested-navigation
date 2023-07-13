@@ -9,6 +9,18 @@
         android:id="@+id/initialFragment"
         android:name="com.learningwithmanos.nested_navigation_example.InitialFragment"
         android:label="Initial"
-        tools:layout="@layout/fragment_initial"/>
+        tools:layout="@layout/fragment_initial">
+
+        <action
+            android:id="@+id/actionFromInitialFragmentToNestedNavHostHolderFragment"
+            app:destination="@+id/nestedNavHostHolderFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nestedNavHostHolderFragment"
+        android:name="com.learningwithmanos.nested_navigation_example.NestedNavHostHolderFragment"
+        android:label="Nested Nav Host Holder Fragment"
+        tools:layout="@layout/fragment_nested_nav_host_holder"/>
 
 </navigation>

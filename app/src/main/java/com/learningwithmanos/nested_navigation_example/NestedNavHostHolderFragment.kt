@@ -1,4 +1,6 @@
 package com.learningwithmanos.nested_navigation_example
 
-class NestedNavHostHolderFragment {
+import androidx.fragment.app.Fragment
+
+class NestedNavHostHolderFragment: Fragment() {
 }
