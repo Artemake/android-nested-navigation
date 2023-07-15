@@ -13,7 +13,13 @@
 
         <action
             android:id="@+id/actionFromNestedFragment1ToNestedFragment2"
-            app:destination="@+id/nestedFragment2"/>
+            app:destination="@id/nestedFragment2"
+            app:popUpTo="@+id/nestedFragment1"
+            app:enterAnim="@anim/enter_slide_in"
+            app:exitAnim="@anim/exit_slide_out"
+            app:popExitAnim="@anim/pop_exit_slide_out"
+            app:popEnterAnim="@anim/pop_enter_slide_in"
+            />
 
     </fragment>
 
@@ -25,7 +31,11 @@
 
         <action
             android:id="@+id/actionFromNestedFragment2ToNestedFragment3"
-            app:destination="@+id/nestedFragment3"/>
+            app:destination="@id/nestedFragment3"
+            app:enterAnim="@anim/enter_slide_in"
+            app:exitAnim="@anim/exit_slide_out"
+            app:popExitAnim="@anim/pop_exit_slide_out"
+            app:popEnterAnim="@anim/pop_enter_slide_in"/>
 
     </fragment>
 

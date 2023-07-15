@@ -13,7 +13,10 @@
 
         <action
             android:id="@+id/actionFromInitialFragmentToNestedNavHostHolderFragment"
-            app:destination="@+id/nestedNavHostHolderFragment"/>
+            app:destination="@+id/nestedNavHostHolderFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/stay_in_place"
+            app:popExitAnim="@anim/fade_out"/>
 
     </fragment>
 
