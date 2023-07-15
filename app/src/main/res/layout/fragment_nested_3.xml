@@ -16,5 +16,14 @@
         android:text="Nested Fragment 3"/>
 
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/exitProgressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/nestedFragmentText3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="exit progress"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import com.learningwithmanos.nested_navigation_example.databinding.FragmentNested3Binding
 
 class NestedFragment3: Fragment() {
@@ -17,6 +18,12 @@ class NestedFragment3: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNested3Binding.inflate(inflater, container, false)
+
+        binding.apply {
+            exitProgressButton.setOnClickListener {
+                parentFragment?.setFragmentResult("key", Bundle())
+            }
+        }
 
         return binding.root
     }
