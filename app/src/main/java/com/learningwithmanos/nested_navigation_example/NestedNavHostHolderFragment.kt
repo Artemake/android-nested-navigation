@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.learningwithmanos.nested_navigation_example.databinding.FragmentNestedNavHostHolderBinding
+import kotlinx.coroutines.launch
 
 class NestedNavHostHolderFragment: Fragment() {
+
+    private val navGraphViewModel: NestedNavHostHolderViewModel by viewModels()
 
     private lateinit var binding: FragmentNestedNavHostHolderBinding
 
@@ -18,7 +22,7 @@ class NestedNavHostHolderFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNestedNavHostHolderBinding.inflate(inflater, container, false)
 
 
@@ -27,12 +31,17 @@ class NestedNavHostHolderFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.nestedNavHost.getFragment<NavHostFragment>().setFragmentResultListener("key") { _, _ ->
-            findNavController().popBackStack()
+
+        lifecycleScope.launch {
+            navGraphViewModel.actionStateFlow.collect {
+                if (it is NestedNavHostHolderViewModel.Action.ExitNestedNavFragment) {
+                    findNavController().popBackStack()
+                }
+            }
         }
 
         binding.nestedNavHost.getFragment<NavHostFragment>().navController.apply {
-            addOnDestinationChangedListener { controller, destination, arguments ->
+            addOnDestinationChangedListener { _, destination, _ ->
                 when (destination.id) {
                     R.id.nestedFragment1 -> {
                         binding.progressBar1.progress = 100
