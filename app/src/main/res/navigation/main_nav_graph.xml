@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/nestedNavHostHolderFragment"
         android:name="com.learningwithmanos.nested_navigation_example.NestedNavHostHolderFragment"
-        android:label="Nested Nav Host Holder Fragment"
+        android:label="Step process"
         tools:layout="@layout/fragment_nested_nav_host_holder"/>
 
 </navigation>
