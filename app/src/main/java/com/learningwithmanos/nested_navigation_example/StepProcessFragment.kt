@@ -9,21 +9,21 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.learningwithmanos.nested_navigation_example.databinding.FragmentNestedNavHostHolderBinding
+import com.learningwithmanos.nested_navigation_example.databinding.FragmentStepProcessBinding
 import kotlinx.coroutines.launch
 
-class NestedNavHostHolderFragment: Fragment() {
+class StepProcessFragment: Fragment() {
 
-    private val navGraphViewModel: NestedNavHostHolderViewModel by viewModels()
+    private val navGraphViewModel: StepProcessViewModel by viewModels()
 
-    private lateinit var binding: FragmentNestedNavHostHolderBinding
+    private lateinit var binding: FragmentStepProcessBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNestedNavHostHolderBinding.inflate(inflater, container, false)
+        binding = FragmentStepProcessBinding.inflate(inflater, container, false)
 
 
         return binding.root
@@ -34,7 +34,7 @@ class NestedNavHostHolderFragment: Fragment() {
 
         lifecycleScope.launch {
             navGraphViewModel.actionStateFlow.collect {
-                if (it is NestedNavHostHolderViewModel.Action.ExitNestedNavFragment) {
+                if (it is StepProcessViewModel.Action.ExitNestedNavFragment) {
                     findNavController().popBackStack()
                 }
             }

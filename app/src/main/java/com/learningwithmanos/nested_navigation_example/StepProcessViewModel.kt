@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 
-class NestedNavHostHolderViewModel: ViewModel() {
+class StepProcessViewModel: ViewModel() {
 
     val actionStateFlow: StateFlow<Action>
         get() = _actionStateFlow.stateIn(

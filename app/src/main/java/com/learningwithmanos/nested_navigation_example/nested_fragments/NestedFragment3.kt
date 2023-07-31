@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.learningwithmanos.nested_navigation_example.NestedNavHostHolderViewModel
+import com.learningwithmanos.nested_navigation_example.StepProcessViewModel
 import com.learningwithmanos.nested_navigation_example.databinding.FragmentNested3Binding
 
 class NestedFragment3 : Fragment() {
 
     private lateinit var binding: FragmentNested3Binding
 
-    private val nestedNavHostHolderViewModel: NestedNavHostHolderViewModel by viewModels(
+    private val stepProcessViewModel: StepProcessViewModel by viewModels(
         ownerProducer = { requireParentFragment().requireParentFragment() }
     )
 
@@ -26,7 +26,7 @@ class NestedFragment3 : Fragment() {
 
         binding.apply {
             exitProgressButton.setOnClickListener {
-                nestedNavHostHolderViewModel.exitNestedNavHostFragment()
+                stepProcessViewModel.exitNestedNavHostFragment()
             }
         }
 
